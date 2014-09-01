@@ -5,7 +5,7 @@
 	<h1>Post a Blog</h1>
 
 	<!-- if there are creation errors, they will show here -->
-	{{ HTML::ul($errors->all()) }}
+	<span class="error">{{ HTML::ul($errors->all()) }}</span>
 
 	{{ Form::open(array('url' => 'blogs')) }}
 

@@ -13,7 +13,8 @@ return array(
 	|
 	*/
 
-	'default' => 'production',
+	//'default' => 'production',
+	'default' => 'development',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,7 +29,7 @@ return array(
 
 	'connections' => array(
 
-		'production' => array(
+		'development' => array(
 			'host'      => '',
 			'username'  => '',
 			'password'  => '',
@@ -52,7 +53,7 @@ return array(
 
 	'groups' => array(
 
-		'web' => array('production')
+		'web' => array('development')
 
 	),
 

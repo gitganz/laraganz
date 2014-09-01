@@ -9,11 +9,13 @@ class BlogController extends BaseController {
 	 */
 	public function index()
 	{
+		
 		//get all the blogs
 		$blogs = Blog::all();
 
 		//load the view and pass the blogs
 		return View::make('blogs.index')->with('blogs', $blogs);
+		
 	}
 
 
@@ -24,8 +26,10 @@ class BlogController extends BaseController {
 	 */
 	public function create()
 	{
+		
 		//load the create
 		return View::make('blogs.create');
+
 	}
 
 
@@ -71,11 +75,14 @@ class BlogController extends BaseController {
 	 */
 	public function show($id)
 	{
+		
 		//get the blog
 		$blog = Blog::find($id);
 		//show the view and pass blog to it
 		return View::make('blogs.show')
 			->with('blog', $blog);
+		
+	
 	}
 
 

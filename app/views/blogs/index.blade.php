@@ -40,6 +40,7 @@
 						<a class="btn btn-small btn-info" href="{{ URL::to('blogs/' . $value->id . '/edit') }}">Edit Post</a>
 
 					</td>
+
 				</tr>
 			@endforeach
 		</tbody>
