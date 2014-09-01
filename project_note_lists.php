@@ -37,7 +37,24 @@
 	****Setup Freehosting.com
 	domain name: tambai
 
+	***Application
+
 	lara.mae@tokyocheapo.com
 	jobs@techcellar.net
+
+
+	**** Using git
+	configure git : git config --list = to show config lists
+					git config --global user.name "sample name" = to config useer name
+					git config --global email = same config
+
+	**change to tilde: cd ~ + enter
+			$user ~ : you can type ls -la = to show all files w/ .gitconfig
+					: cat .gitconfig = to show new configuration
+					: git remote
+					: git remote https://github.com/gitganz/laraganz
+					: git remote set-url origin git new url here = to change git repo url
+					: this area test for changes
+
 </body>
 </html>
