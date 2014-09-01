@@ -54,7 +54,12 @@
 					: git remote
 					: git remote https://github.com/gitganz/laraganz
 					: git remote set-url origin git new url here = to change git repo url
-					: this area test for changes
+					: git add file.txt = to put on staged before commit
+					: git reset octofamily/octodog.txt = to unstaged files
+					: git checkout -- file.txt = to git rid of all changes since last commit
+					: git branch clean_up = to clean the branch
+					: git checkout clean_up
+
 
 </body>
 </html>
