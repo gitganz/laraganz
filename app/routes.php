@@ -49,14 +49,16 @@ Route::resource('items' , 'ItemsController');
 
 //Image Manipulation
 
+//Auth::loginUsingId(3);
+
+//helper function to be transfered to helper lib
+function user_photos_path()
+{
+	return public_path().'/images/'.Auth::user()->username.'/';
+}
+
 Route::resource('photos', 'PhotosController');
 
-// Route::get('photos', function(){
-
-// 	$image = Image::make(file_get_contents('http://2.bp.blogspot.com/-GP0NtlGdavM/U1e6H3OEduI/AAAAAAAACqY/bbhnYUeUdT0/s1600/julia-barretto-two-piece-2.jpg'));
-	
-// 	return Response::make($image, 200, ['Content-Type' => 'image/jpg']);
-// });
 
 
 

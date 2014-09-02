@@ -1,6 +1,6 @@
 <?php
 
-class PhotosController extends \BaseController {
+class PhotosController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,15 +9,7 @@ class PhotosController extends \BaseController {
 	 */
 	public function index()
 	{
-		if(Auth::user()){
-			
-			$photos = Photo::all();
-
-			return View::make('photos.index')->with(array('photos' => $photos));
-
-		}
-	
-		
+		return View::make('photos.index')->withInput('img', $input);
 	}
 
 
@@ -39,31 +31,30 @@ class PhotosController extends \BaseController {
 	 */
 	public function store()
 	{
+		$image = new Photo;
+		
 		$input = Input::all();
 
-		$image = new Photo();
-		$image->user_id 	= $input['user_id'];
-		$image->fileName 	= $input['fileName']->getClientOriginalName();
-		$image->title  		= $input['title'];
+		$fileName = $input['fileName']->getClientOriginalName();
+
+		$path = user_photos_path();
+
+		// dd(Input::all() ['fileName']);
+
+		//validation for uploading image
+		//if good to go
+		$image = Image::make($input['fileName']->getRealPath());
+
+		File::exists($path) or File::makeDirectory($path);
+
+		$image->save($path . $fileName)
+				->resize(200, 200)
+				->greyscale()
+				->save($path. 'tn-' .$fileName);
 		
-		if($image->save()){
-			
-			$path = user_photos_path();
+				
 
-			$move_image = Image::make($input['fileName']->getRealPath());
-
-			File::exists($path) or File::makeDirectory($path);
-
-			$move_image->save($path.$image->fileName)
-					->resize(200,200)
-					->greyscale()
-					->save($path. 'tn-'.$image->fileName);
-
-			return Redirect::to('photos');	
-		}else{
-			return Ridirect::to('photos.create');
-		}
-	
+		return Redirect::to('photos');
 	}
 
 
